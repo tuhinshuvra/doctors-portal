@@ -3,17 +3,23 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import useToken from '../../hooks/useToken';
 import './Login.css';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [loginError, setLoginError] = useState('');
+    const [loginUserEmail, setLoginUserEmail] = useState('');
+    const [token] = useToken(loginUserEmail);
     const location = useLocation();
     const navigate = useNavigate();
 
     const form = location.state?.from?.pathname || '/';
 
+    if (token) {
+        navigate(form, { replace: true })
+    }
 
     const handleLogin = (data) => {
         setLoginError('');
@@ -22,7 +28,8 @@ const Login = () => {
                 const user = result.user;
                 toast.success('User Login Successfully.')
                 console.log(user);
-                navigate(form, { replace: true })
+                setLoginUserEmail(data.email);
+
             })
             .catch(error => {
                 setLoginError(error.message);
@@ -31,7 +38,6 @@ const Login = () => {
             })
         console.log(data);
     }
-
 
     return (
         <div className=' flex justify-center items-center '>
