@@ -7,7 +7,7 @@ const ExceptionalCare = () => {
     return (
 
 
-        <div className="card lg:card-side bg-base-100 shadow-xl lg:gap-24 lg:mx-28 mt-24">
+        <div className="card lg:card-side bg-base-100 shadow-xl lg:gap-24 lg:mx-28 lg:my-28 lg:py-12">
             <figure className=' md:w-1/2'><img className=' lg:w-[400px]  rounded-lg' src={Treatment} alt="Album" /></figure>
             <div className="card-body md:w-1/2  p-0">
                 <h2 className="card-title lg:text-4xl font-bold">Exceptional Dental Care, on Your Terms</h2>
