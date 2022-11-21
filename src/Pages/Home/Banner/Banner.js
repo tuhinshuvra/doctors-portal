@@ -2,6 +2,7 @@ import React from 'react';
 import './Banner.css'
 import Chair from '../../../assets/images/chair.png';
 import PrimaryButton from '../../../components/PrimaryButton';
+import { Link } from 'react-router-dom';
 
 
 const Banner = () => {
@@ -15,7 +16,7 @@ const Banner = () => {
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
 
                     <div className=' text-center md:text-left '>
-                        <PrimaryButton>Get Started</PrimaryButton>
+                        <Link to='/appointment'><PrimaryButton>Get Started</PrimaryButton></Link>
                     </div>
                 </div>
             </div>

@@ -1,12 +1,12 @@
 import React from 'react';
 
-const ContactUs = () => {
+const Review = () => {
     return (
         <div className=' text-3xl text-center font-bold my-32'>
-            <h2>Contact Us Page Comminng Soon</h2>
+            <h2>Review Page Comminng Soon</h2>
             <progress className="progress w-80"></progress>
         </div>
     );
 };
 
-export default ContactUs;
+export default Review;
