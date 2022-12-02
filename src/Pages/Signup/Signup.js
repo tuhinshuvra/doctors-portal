@@ -17,6 +17,7 @@ const Signup = () => {
     if (token) {
         navigate('/')
     }
+    console.log("JWT Token : ", token);
     const submitHandler = (data) => {
         createUser(data.email, data.password)
             .then((result) => {
@@ -45,7 +46,7 @@ const Signup = () => {
 
     const saveUser = (name, email) => {
         const user = { name, email };
-        fetch('http://localhost:5000/users', {
+        fetch('https://doctors-portal-server-omega-liard.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

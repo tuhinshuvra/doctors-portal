@@ -29,7 +29,7 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
 
         // TODO: send data to the server
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://doctors-portal-server-omega-liard.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

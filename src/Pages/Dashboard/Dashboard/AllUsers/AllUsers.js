@@ -13,17 +13,16 @@ const AllUsers = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const response = await fetch('http://localhost:5000/users');
+            const response = await fetch('https://doctors-portal-server-omega-liard.vercel.app/users');
             const data = await response.json();
             return data;
         }
     })
 
     const handleMakeAdmin = (id) => {
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(`https://doctors-portal-server-omega-liard.vercel.app/users/admin/${id}`, {
             method: 'PUT',
             headers: {
-
                 authorization: `brarer ${localStorage.getItem('accessToken')}`
             }
         })
@@ -33,13 +32,11 @@ const AllUsers = () => {
                     toast.success('Make admin Successfully.')
                     refetch()
                 }
-
             })
-
     }
 
     const handleDeleteUser = (user) => {
-        fetch(`http://localhost:5000/users/${user._id}`, {
+        fetch(`https://doctors-portal-server-omega-liard.vercel.app/users/${user._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

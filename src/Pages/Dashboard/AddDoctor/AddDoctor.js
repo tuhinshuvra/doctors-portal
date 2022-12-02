@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -15,7 +14,7 @@ const AddDoctor = () => {
     const { data: specialties, isLoading } = useQuery({
         queryKey: ['specialty'],
         queryFn: async () => {
-            const response = await fetch('http://localhost:5000/appointmentSpecialty');
+            const response = await fetch('https://doctors-portal-server-omega-liard.vercel.app/appointmentSpecialty');
             const data = await response.json();
             return data;
         }
@@ -41,7 +40,7 @@ const AddDoctor = () => {
                     }
                     // console.log("Doctor :", doctor);
                     // save doctor information
-                    fetch('http://localhost:5000/doctors', {
+                    fetch('https://doctors-portal-server-omega-liard.vercel.app/doctors', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
